@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+<script src="app1.js"></script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+    background-color: #000080;
+    padding: 20px;
+    text-align: left;
+    font-size: 35px;
+    color: white;
+    width: 60%;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+    float: left;
+    width: 25%;
+    height: 300px; /* only for demonstration, should be removed */
+    background: white;
+    padding: 20px;
+}
+
+/* Style the list inside the menu */
+
+
+article {
+    float: left;
+    padding: 20px;
+    width: 35%;
+    background-color: #f1f1f1;
+    height: 300px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the footer */
+footer {
+    background-color: #000080;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    width: 60%;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+    nav, article {
+        width: 60%;
+        height: auto;
+    }
+}
+
+table {
+    font-family: Helvetica, sans-serif;
+    font-color: #000080;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    border: 1px solid #000080;
+    text-align: left;
+    padding: 12px;
+}
+
+
+td {
+    border: 1px solid #000080;
+    text-align: left;
+    padding: 12px;
+}
+
+tr:nth-child(even) {
+    background-color: #fff;
+}
+
+</style>
+
+<body>
+
+
+<div ng-app="app">
+	<div ng-controller="homeCtrl">
+
+		<header>
+  			<h3>Account Number : {{account_number}}</h3>
+  			<h3>Total Balance : Rs. {{balance}}</h3>
+		</header> 
+
+		<section>
+  <nav>
+  	<font size = "3" color="green"><strong>Total Credit last month: Rs. {{credit}}</strong></font>
+    <p></p>
+  	<font size= "3" color="red"><strong>Total Debit last month: Rs. {{debit}}</strong></font>
+    <p></p>
+    <div id="piechart"></div>
+  </nav>
+  
+  <article>
+  	<font size="6" color="#000080" ><strong>Transactions</strong></font>
+  	<p></p>
+
+    <div id="showData"></div>
+    <!-- <table>
+  <tr bgcolor="#000080">
+    <th><font color="white">Date</font></th>
+    <th><font color="white">Transaction Id</font></th>
+    <th><font color="white">Type</font></th>
+    <th><font color="white">Amount</font></th>
+  </tr>
+ <tr>
+    <td>{{t1_date}}</td>
+    <td>{{t1_id}}</td>
+    <td>{{t1_type}}</td>
+    <td>{{t1_amount}}</td>
+  </tr>
+  <tr>
+    <td>{{t2_date}}</td>
+    <td>{{t2_id}}</td>
+    <td>{{t2_type}}</td>
+    <td>{{t2_amount}}</td>
+  </tr>
+  <tr>
+    <td>{{t3_date}}</td>
+    <td>{{t3_id}}</td>
+    <td>{{t3_type}}</td>
+    <td>{{t3_amount}}</td>
+  </tr>
+</table> -->
+  </article>
+</section>
+
+<footer>
+
+</footer>
+
+	</div>
+</div>
+
+</body>
+</html>
