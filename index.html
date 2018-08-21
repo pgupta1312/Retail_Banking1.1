@@ -25,17 +25,17 @@ body {
 /* Style the header */
 header {
     background-color: #000080;
-    padding: 20px;
+    padding: 1px;
     text-align: left;
     font-size: 35px;
     color: white;
-    width: 53%;
+    width: 40%;
 }
 /* Create two columns/boxes that floats next to each other */
 nav {
     float: left;
-    width: 25%;
-    height: 300px; /* only for demonstration, should be removed */
+    width: 30%;
+/*    height: 300px;*/ /* only for demonstration, should be removed */
     background: white;
     padding: 20px;
 }
@@ -43,9 +43,9 @@ nav {
 article {
     float: left;
     padding: 20px;
-    width: 28%;
+    width: 10%;
     background-color: #f1f1f1;
-    height: 300px; /* only for demonstration, should be removed */
+    /*height: 300px;*/ /* only for demonstration, should be removed */
 }
 /* Clear floats after the columns */
 section:after {
@@ -59,12 +59,12 @@ footer {
     padding: 10px;
     text-align: center;
     color: white;
-    width: 53%;
+    width: 40%;
 }
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 600px) {
     nav, article {
-        width: 53%;
+        width: 40%;
         height: auto;
     }
 }
@@ -102,19 +102,13 @@ tr:nth-child(even) {
 
 		<section>
   <nav>
-  	<font size = "3" color="green"><strong>Total Credit last month: Rs. {{credit}}</strong></font>
-    <p></p>
-  	<font size= "3" color="red"><strong>Total Debit last month: Rs. {{debit}}</strong></font>
-    <p></p>
-    <div id="piechart"></div>
-  </nav>
   
-  <article>
-  	<font size="6" color="#000080" ><strong>Last 3 Transactions</strong></font>
-  	<p></p>
+    <p></p>
+    <font size="5" color="#000080" ><strong>Last 3 Transactions</strong></font>
+    <p></p>
 
     <div class="container">
-        <table id="table" data-height="460">
+        <table id="table" >
         <thead>
             <tr>
                 <th data-field="Date">Date</th>
@@ -125,6 +119,16 @@ tr:nth-child(even) {
         </thead>
     </table>
     </div>
+<!--     <p></p>
+    <div id="piechart"></div> -->
+  </nav>
+  
+  <article>
+  	
+    <font size = "3" color="green"><strong>Total Credit last month: <br><p></p> Rs. {{credit}}</strong></font>
+    <p> </p><br>
+    <font size= "3" color="red"><strong>Total Debit last month: <br><p></p> Rs. {{debit}}</strong></font>
+
     <!-- <table>
   <tr bgcolor="#000080">
     <th><font color="white">Date</font></th>
