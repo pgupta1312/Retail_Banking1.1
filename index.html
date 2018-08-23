@@ -1,141 +1,195 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title></title>
-</head>
-
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/bootstrap-table.js"></script>
+    <script type="text/javascript" src="bootstrap-table.js"></script>
     <script type="text/javascript" src="js/angular.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap-table.css">
+    <link rel="stylesheet" href="bootstrap-table.css">
     <link rel="stylesheet" href="css/bootstrap.css">
-<script src="app1.js"></script>
-
-<style>
-* {
-    box-sizing: border-box;
-}
-body {
-    font-family: Helvetica, sans-serif;
-}
-/* Style the header */
-header {
-    background-color: #000080;
-    padding: 1px;
-    text-align: left;
-    font-size: 35px;
-    color: white;
-    width: 45%;
-}
-/* Create two columns/boxes that floats next to each other */
-nav {
-    float: left;
-    width: 35%;
-/*    height: 300px;*/ /* only for demonstration, should be removed */
-    background: white;
-    padding: 20px;
-}
-/* Style the list inside the menu */
-article {
-    float: left;
-    padding: 20px;
-    width: 10%;
-    background-color: #f1f1f1;
-    /*height: 300px;*/ /* only for demonstration, should be removed */
-}
-/* Clear floats after the columns */
-section:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-/* Style the footer */
-footer {
-    background-color: #000080;
-    padding: 10px;
-    text-align: center;
-    color: white;
-    width: 45%;
-}
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-@media (max-width: 600px) {
-    nav, article {
-        width: 45%;
-        height: auto;
+  <script type="text/javascript" src="app.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {
+      width: auto;
+      height: auto;
+      background-color : #f1f1f1;
     }
-}
-table {
-    font-family: Helvetica, sans-serif;
-    font-color: #000080;
-    border-collapse: collapse;
-    width: 100%;
-}
-th {
-    border: 1px solid #000080;
-    text-align: left;
-    padding: 12px;
-}
-td {
-    border: 1px solid #000080;
-    text-align: left;
-    padding: 12px;
-}
-tr:nth-child(even) {
-    background-color: #fff;
-}
-</style>
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: white;
+      width: auto;
+      height: 100%;
+    }
+    
+    header {
+      background-color: #000080;
+      color: white;
+      width: 100%;
+      padding: 5px;
+      height: auto;
+    }
 
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #000080;
+      color: white;
+      width: 100%;
+      padding: 5px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
 <body>
 
+  <div ng-app="app">
+  <div ng-controller="homeCtrl">
 
-<div ng-app="app">
-	<div ng-controller="homeCtrl">
+<header class="container-fluid">
+  <h4>Account Number : {{account_number}}</h4>
+  <h4>Net Balance : Rs. {{balance}}</h4>
+</header>
 
-		<header>
-  			<h3>Account Number : {{account_number}}</h3>
-  			<h3>Net Balance : Rs. {{balance}}</h3>
-		</header> 
+<div class="container-fluid">
+  <div class="row content">
+    <!-- <div class="col-sm-3 sidenav">
+      <h4>John's Blog</h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#section1">Home</a></li>
+        <li><a href="#section2">Friends</a></li>
+        <li><a href="#section3">Family</a></li>
+        <li><a href="#section3">Photos</a></li>
+      </ul><br>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search Blog..">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
 
-		<section>
-  <nav>
-  
+      <font size = "3" color="green"><strong>Total Credit last month: Rs. {{credit}}</strong></font>
     <p></p>
-    <font size="5" color="#000080" ><strong>Last 3 Transactions</strong></font>
+    <font size= "3" color="red"><strong>Total Debit last month: Rs. {{debit}}</strong></font>
     <p></p>
+    <div id="piechart"></div>
+    </div>
+ -->
+    <div class="col-sm-9">
+      <!-- <h4><small>RECENT POSTS</small></h4>
+      <hr>
+      <h2>I Love Food</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
+      <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
+      <p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <br><br>
+      
+      <h4><small>RECENT POSTS</small></h4>
+      <hr>
+      <h2>Officially Blogging</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>
+      <h5><span class="label label-success">Lorem</span></h5><br>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <hr>
 
-    <div class="container">
-        <table id="table" >
+      <h4>Leave a Comment:</h4>
+      <form role="form">
+        <div class="form-group">
+          <textarea class="form-control" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+      <br><br>
+      
+      <p><span class="badge">2</span> Comments:</p><br>
+      
+      <div class="row">
+        <div class="col-sm-2 text-center">
+          <img src="bandmember.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+        </div>
+        <div class="col-sm-10">
+          <h4>Anja <small>Sep 29, 2015, 9:12 PM</small></h4>
+          <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <br>
+        </div>
+        <div class="col-sm-2 text-center">
+          <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+        </div>
+        <div class="col-sm-10">
+          <h4>John Row <small>Sep 25, 2015, 8:25 PM</small></h4>
+          <p>I am so happy for you man! Finally. I am looking forward to read about your trendy life. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <br>
+          <p><span class="badge">1</span> Comment:</p><br>
+          <div class="row">
+            <div class="col-sm-2 text-center">
+              <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+            </div>
+            <div class="col-xs-10">
+              <h4>Nested Bro <small>Sep 25, 2015, 8:28 PM</small></h4>
+              <p>Me too! WOW!</p>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+       <p></p>
+    <font size="3" color="#000080" ><strong>Last 3 Transactions</strong></font>
+    <p></p>
+    
+    <div class="container-fluid">
+        <div class="table-condensed">
+          <table id="table">
         <thead>
             <tr>
                 <th data-field="Date">Transaction Date</th>
-                <th data-field="Transaction Id">Transaction Id</th>
+                <th data-field="Transaction_Id">Transaction Id</th>
                 <th data-field="Type">Type</th>
                 <th data-field="Amount">Amount</th>
             </tr>
         </thead>
     </table>
+    <p></p>
+    <font size = "3" color="green"><strong>Total Credit last month: Rs. {{credit}}</strong></font>
+    <p></p>
+    <font size= "3" color="red"><strong>Total Debit last month: Rs. {{debit}}</strong></font>
+    <p></p>
+  </div>
     </div>
-<!--     <p></p>
-    <div id="piechart"></div> -->
-  </nav>
-  
-  <article>
-  	
-    <font size = "3" color="green"><strong>Total Credit last month: <br><p></p> Rs. {{credit}}</strong></font>
-    <p> </p><br>
-    <font size= "3" color="red"><strong>Total Debit last month: <br><p></p> Rs. {{debit}}</strong></font>
+    <!-- <div class="container">
+    <div id="showData" class="table table-condensed"></div>
+  </div> -->
 
-    <!-- <table>
-  <tr bgcolor="#000080">
+
+ <!--  <div class="container">    
+  <table class="table table-condensed">
+    <thead>
+      <tr bgcolor="#000080">
     <th><font color="white">Date</font></th>
     <th><font color="white">Transaction Id</font></th>
     <th><font color="white">Type</font></th>
     <th><font color="white">Amount</font></th>
   </tr>
+</thead>
  <tr>
     <td>{{t1_date}}</td>
     <td>{{t1_id}}</td>
@@ -154,16 +208,22 @@ tr:nth-child(even) {
     <td>{{t3_type}}</td>
     <td>{{t3_amount}}</td>
   </tr>
-</table> -->
-  </article>
-</section>
-
-<footer>
-
-</footer>
-
-	</div>
+    </tbody>
+  </table>
 </div>
 
+ -->
+
+
+
+
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+</footer>
+</div>
+</div>
 </body>
 </html>
